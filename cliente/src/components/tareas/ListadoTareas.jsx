@@ -1,25 +1,29 @@
-import React,{Fragment} from 'react'
-
+import React, { Fragment } from "react";
+import Tarea from "./Tarea";
 const ListadoTareas = () => {
-    const tareas =[
-        {nombre:"Elegir Plataforma", estado: true},
-        {nombre:"Elegir Colores", estado: false},
-        {nombre:"Elegir Plataforma de Pagos", estado: false},
-        {nombre:"Elegir Hosting", estado: true},
-    ]
-    return (
-        <Fragment>
-            <h2>Prtoyecto: Tienda Virtual</h2>
-            <ul className="listado-tareas">
-{tareas.length === 0 ?
-(<li className="tarea"><p>No hay Tareas</p></li>):
-{}
-}
-            </ul>
-        </Fragment>
-       
+  const tareasProyecto = [
+    { nombre: "Elegir Plataforma", estado: true },
+    { nombre: "Elegir Colores", estado: false },
+    { nombre: "Elegir Plataforma de Pagos", estado: false },
+    { nombre: "Elegir Hosting", estado: true },
+  ];
+  return (
+    <Fragment>
+      <h2>Prtoyecto: Tienda Virtual</h2>
+      <ul className="listado-tareas">
+        {tareasProyecto.length === 0 ? (
+          <li className="tarea">
+            <p>No hay Tareas</p>
+          </li>
+        ) : (
+          tareasProyecto.map(tarea => (
+            <Tarea tarea={tarea}/>
+          ))
+        )}
+      </ul>
+      <button type="button" className="btn btn-eliminar">Eliminar Proyecto &times;</button>
+    </Fragment>
+  );
+};
 
-    )
-}
-
-export default ListadoTareas
+export default ListadoTareas;
